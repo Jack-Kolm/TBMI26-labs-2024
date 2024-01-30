@@ -14,7 +14,8 @@ def calcAccuracy(LPred, LTrue):
     # --------------------------------------------
     # === Your code here =========================
     # --------------------------------------------
-    acc = None
+    correct_predictions = np.sum(LPred==LTrue)
+    acc = correct_predictions / len(LTrue)
     # ============================================
     return acc
 
