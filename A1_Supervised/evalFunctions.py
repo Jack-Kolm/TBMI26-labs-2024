@@ -35,7 +35,11 @@ def calcConfusionMatrix(LPred, LTrue):
     # --------------------------------------------
     # === Your code here =========================
     # --------------------------------------------
-    cM = None
+    nClasses = np.unique(LTrue).shape[0]
+    cM = np.zeros((nClasses, nClasses))
+
+    for i in range(len(LTrue)):
+        cM[LTrue[i]][LPred[i]] += 1
     # ============================================
 
     return cM
@@ -55,7 +59,7 @@ def calcAccuracyCM(cM):
     # --------------------------------------------
     # === Your code here =========================
     # --------------------------------------------
-    acc = None
+    acc = np.trace(cM) / np.sum(cM)
     # ============================================
     
     return acc
